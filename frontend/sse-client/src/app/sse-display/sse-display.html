@@ -1,0 +1,12 @@
+<div class="sse-container">
+  <h2>Server-Sent Events</h2>
+  <div class="messages-container">
+    <div *ngIf="messages().length === 0" class="no-messages">
+      No messages received yet...
+    </div>
+    <div *ngFor="let msg of messages()" class="message">
+      <span class="timestamp">{{ msg.timestamp }}</span>
+      <span class="content">{{ msg.content }}</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,108 @@
+.sse-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.sse-container h2 {
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.status {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bold;
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+.status.connected {
+  background-color: #e8f5e8;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
+}
+
+.messages-container {
+  max-height: 400px;
+  overflow-y: scroll;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+}
+
+.no-messages {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 20px;
+}
+
+.message {
+  display: flex;
+  margin-bottom: 10px;
+  padding: 8px;
+  background-color: white;
+  border-radius: 4px;
+  border-left: 3px solid #2196f3;
+}
+
+.timestamp {
+  color: #666;
+  font-size: 0.8em;
+  margin-right: 10px;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.content {
+  flex: 1;
+  word-break: break-word;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.controls button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.controls button:not(:disabled) {
+  background-color: #2196f3;
+  color: white;
+}
+
+.controls button:not(:disabled):hover {
+  background-color: #1976d2;
+}
+
+.controls button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.controls button:last-child {
+  background-color: #f44336;
+  color: white;
+}
+
+.controls button:last-child:hover:not(:disabled) {
+  background-color: #d32f2f;
+}
