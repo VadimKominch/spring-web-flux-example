@@ -1,10 +1,10 @@
 package org.example.webflux.model;
 
 public class DataPoint {
-    private int x;
+    private double x;
 //    private int y;
 
-    public DataPoint(int x/*, int y*/) {
+    public DataPoint(double x/*, int y*/) {
         this.x = x;
 //        this.y = y;
     }
@@ -12,11 +12,11 @@ public class DataPoint {
     public DataPoint() {
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 

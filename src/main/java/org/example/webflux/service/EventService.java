@@ -11,7 +11,8 @@ import java.util.Random;
 @Service
 public class EventService {
 
-    private DataService dataService;
+    public static final int DOTS_COUNT = 500;
+    private final DataService dataService;
     private final Random random = new Random();
 
     public EventService(DataService dataService) {
@@ -32,13 +33,21 @@ public class EventService {
                 .map(sequence -> ServerSentEvent.<DataPoint>builder()
                         .id(String.valueOf(sequence))
                         .event("number-event")
-                        .data(new DataPoint(random.nextInt(100)+10))
+                        .data(new DataPoint(getDot(sequence.intValue())))
                         .build());
+    }
+    /*
+     * harmonic oscilator
+     * */
+    private double getDot(int order) {
+        double t = (double) order / DOTS_COUNT; // условное время
+        double modulator = Math.sin(2 * Math.PI * 2 * t);
+        return Math.sin(2 * Math.PI * 5 * t + 2 * modulator);
     }
 
     public Flux<ServerSentEvent<String>> mapEvents() {
         return dataService.generateSequence()
-                .flatMap(id -> dataService.fetchDetails(id))
+                .flatMap(dataService::fetchDetails)
                 .map(sequence -> ServerSentEvent.<String>builder()
                         .id(String.valueOf(sequence))
                         .event("periodic-event")
